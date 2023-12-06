@@ -76,6 +76,16 @@ int main() {
     scanf("%d %d %d", &time2.hours, &time2.minutes, &time2.seconds);
 
 
+//Functions to add hours,minutes,seconds
+
+    addHours(time1,12);
+    addMinutes(time1,56);
+    addSeconds(time1,23);
+    
+    printf("added time=%d hours,%d minutes,%d seconds",time1.hours,time1.minutes,time1.seconds);
+
+
+
     struct Time addedTime = addTime(time1, time2);
     printf("Time 1 + Time 2: %d hours, %d minutes, %d seconds\n", addedTime.hours, addedTime.minutes, addedTime.seconds);
 
