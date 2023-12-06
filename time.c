@@ -78,11 +78,11 @@ int main() {
 
 //Functions to add hours,minutes,seconds
 
-    addHours(time1,12);
-    addMinutes(time1,56);
-    addSeconds(time1,23);
+    addHours(&time1,12);
+    addMinutes(&time1,56);
+    addSeconds(&time1,23);
     
-    printf("added time=%d hours,%d minutes,%d seconds",time1.hours,time1.minutes,time1.seconds);
+    printf("added time=%d hours,%d minutes,%d seconds\n",time1.hours,time1.minutes,time1.seconds);
 
 
 
