@@ -16,14 +16,25 @@ struct Student {
     struct Date yoj;
 };
 
+
+//calculates the average cgpa
 float calculateAvgCGPA(struct Student students[], int count) {
     float totalCGPA = 0;
+    float avgCGPA;
     for (int i = 0; i < count; ++i) {
         totalCGPA += students[i].cgpa;
     }
-    return (count > 0) ? (totalCGPA / count) : 0;
+    if (count > 0) {
+    avgCGPA = totalCGPA / count;
+    } else 
+    {
+        avgCGPA = 0;
+    }
+return avgCGPA;
 }
 
+
+//prints details of students above average cgpa
 void displayAboveAvgCGPA(struct Student students[], int count) {
     float avgCGPA = calculateAvgCGPA(students, count);
     printf("Students with CGPA greater than the average CGPA (%.2f):\n", avgCGPA);
@@ -34,6 +45,7 @@ void displayAboveAvgCGPA(struct Student students[], int count) {
     }
 }
 
+//prints details as per given Reg Num
 void printStudentDetailsByRegdNo(struct Student students[], int count, int regdNo) {
     for (int i = 0; i < count; ++i) {
         if (students[i].regdno == regdNo) {
@@ -45,6 +57,7 @@ void printStudentDetailsByRegdNo(struct Student students[], int count, int regdN
     printf("No student found with Regd No %d\n", regdNo);
 }
 
+//prints details as per given year
 void printStudentsByYearOfJoining(struct Student students[], int count, int year) {
     printf("Students joined in year %d:\n", year);
     for (int i = 0; i < count; ++i) {
@@ -54,6 +67,7 @@ void printStudentsByYearOfJoining(struct Student students[], int count, int year
     }
 }
 
+//prints details as per given gender
 void printStudentsByGender(struct Student students[], int count, char gender) {
     printf("Students with gender '%c':\n", gender);
     for (int i = 0; i < count; ++i) {
@@ -63,6 +77,7 @@ void printStudentsByGender(struct Student students[], int count, char gender) {
     }
 }
 
+
 int compareCGPA(const void *a, const void *b) {
     struct Student *studentA = (struct Student *)a;
     struct Student *studentB = (struct Student *)b;
@@ -70,12 +85,28 @@ int compareCGPA(const void *a, const void *b) {
 }
 
 void printStudentsInIncreasingCGPAOrder(struct Student students[], int count) {
-    qsort(students, count, sizeof(struct Student), compareCGPA);
+    // Bubble sort to sort students by increasing CGPA
+    int i, j;
+    struct Student temp;
+
+    for (i = 0; i < count - 1; i++) {
+        for (j = 0; j < count - i - 1; j++) {
+            if (students[j].cgpa > students[j + 1].cgpa) {
+                // Swap elements if they are in the wrong order
+                temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+
+//printing the sorted data
     printf("Students in increasing order of CGPA:\n");
-    for (int i = 0; i < count; ++i) {
+    for (i = 0; i < count; ++i) {
         printf("Regd No: %d, Name: %s, CGPA: %.2f\n", students[i].regdno, students[i].name, students[i].cgpa);
     }
 }
+
 
 int main() {
     struct Student students[5] = 
