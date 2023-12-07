@@ -40,8 +40,13 @@ struct Complex divide(struct Complex a, struct Complex b) {
 }
 
 int main() {
-    struct Complex num1 = {2.5, 3.7};
-    struct Complex num2 = {1.2, 4.5};
+    struct Complex num1, num2;
+
+    printf("Enter real and imaginary parts of complex number 1: ");
+    scanf("%f %f", &num1.real, &num1.imaginary);
+
+    printf("Enter real and imaginary parts of complex number 2: ");
+    scanf("%f %f", &num2.real, &num2.imaginary);
 
     struct Complex sum = add(num1, num2);
     printf("Sum: %.2f + %.2fi\n", sum.real, sum.imaginary);
