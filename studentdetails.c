@@ -21,10 +21,10 @@ struct Student {
 float calculateAvgCGPA(struct Student students[], int count) {
     float totalCGPA = 0;
     float avgCGPA;
-    for (int i = 0; i < count; ++i) {
+    for (int i = 0; i < count; i++) {
         totalCGPA += students[i].cgpa;
     }
-    if (count > 0) {
+    if (count > 0) { // the number of subjects should be greater than 0
     avgCGPA = totalCGPA / count;
     } else 
     {
@@ -36,9 +36,9 @@ return avgCGPA;
 
 //prints details of students above average cgpa
 void displayAboveAvgCGPA(struct Student students[], int count) {
-    float avgCGPA = calculateAvgCGPA(students, count);
+    float avgCGPA = calculateAvgCGPA(students, count); //calculates the average gpa
     printf("Students with CGPA greater than the average CGPA (%.2f):\n", avgCGPA);
-    for (int i = 0; i < count; ++i) {
+    for (int i = 0; i < count; ++i) { //condition
         if (students[i].cgpa > avgCGPA) {
             printf("Regd No: %d, Name: %s, CGPA: %.2f\n", students[i].regdno, students[i].name, students[i].cgpa);
         }
@@ -54,7 +54,6 @@ void printStudentDetailsByRegdNo(struct Student students[], int count, int regdN
             return;
         }
     }
-    printf("No student found with Regd No %d\n", regdNo);
 }
 
 //prints details as per given year
@@ -78,11 +77,7 @@ void printStudentsByGender(struct Student students[], int count, char gender) {
 }
 
 
-int compareCGPA(const void *a, const void *b) {
-    struct Student *studentA = (struct Student *)a;
-    struct Student *studentB = (struct Student *)b;
-    return (studentA->cgpa - studentB->cgpa);
-}
+
 
 void printStudentsInIncreasingCGPAOrder(struct Student students[], int count) {
     // Bubble sort to sort students by increasing CGPA
