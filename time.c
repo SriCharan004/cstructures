@@ -53,8 +53,8 @@ struct Time subtractTime(struct Time t1, struct Time t2) { //caluculate the abso
     int totalSeconds2 = t2.seconds + t2.minutes * 60 + t2.hours * 3600;
 
 //Difference
-    int diffSeconds = totalSeconds1 - totalSeconds2;
-
+    int diffSeconds = totalSeconds1 - totalSeconds2; 
+// we can also use the absolute
 //if negative
     if (diffSeconds < 0)
         diffSeconds = -diffSeconds;
@@ -92,5 +92,7 @@ int main() {
     struct Time subtractedTime = subtractTime(time1, time2);
     printf("Time 1 - Time 2: %d hours, %d minutes, %d seconds\n", subtractedTime.hours, subtractedTime.minutes, subtractedTime.seconds);
 
+
+//time multiplication is not there in our dimension
     return 0;
 }
