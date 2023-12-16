@@ -162,4 +162,38 @@ void displaylinkedlist(struct node *H){
 }
 
 
+struct node * del(struct node *head,char c){
+	Node * curr;
+	Node *prev;
+	
+	prev=mloc(prev);
+	curr=mloc(curr);
+	
+	curr=head;
+	
+	while (curr!=NULL)
+		{
+			if(curr->data=c)
+				{
+					
+					
+					if (prev!=NULL){
+						prev->next=curr->next;				
+					}
+				
+					else {
+						head=curr->next;
+					}
+					free(curr);
+					break;
+				}
+		}
+	if(curr==NULL)
+		printf("Not found");
+
+	return head;
+}
+
+
+
 
