@@ -33,7 +33,13 @@ void displaylinkedlist(struct node *H){
 		}
 }
 
+//Function to allocate memories
 
+struct node *mloc(Node *t) {
+    t = (struct node *)malloc(sizeof(struct node));
+    return t;
+
+}
 
 
 int main()
