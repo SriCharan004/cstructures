@@ -19,23 +19,10 @@ struct node *mloc(Node *t) {
 }
 
 int count(struct node *head);
+struct node * insertatbeg(Node *head,char c);
+void displaylinkedlist(struct node *H);
 
 
-void displaylinkedlist(struct node *H){
-	
-	if (H==NULL)
-		{
-			printf("It is a empty list\n");
-		}
-	else 
-		{
-			while(H!=NULL)
-				{
-					printf("%c\n",H->data);
-					H=H->next;
-				}
-		}
-}
 
 
 
@@ -71,10 +58,9 @@ int main()
 	Node *T;
 	T=mloc(T);
 	T=NULL;
-	T=insertatend(T,'P');
-	displaylinkedlist(T);
-	printf("Total nummber of nodes are %d\n",count(T));
-	
+	head=insertatbeg(head,'A');
+	displaylinkedlist(head);
+	printf("Total nummber of nodes are %d\n",count(head));
 	
 	
 	
@@ -119,7 +105,30 @@ struct node *insertatend(Node* head, char c)
 }
 
 
+struct node * insertatbeg(Node *head,char c){
 
+	
+	Node *beg=NULL;
+	beg=mloc(beg);
+	
+	if (beg!=NULL)//allocation
+		{
+			beg->data=c;
+		}
+	
+	
+	if (head==NULL){ //if it is empty
+		beg->next=NULL;
+		return beg;
+	}
+	else{// if it not empty
+		Node *temp=head;
+		beg->next=temp;
+		return beg;
+	}
+		
+
+}
 
 int count(struct node *h){
 	
@@ -135,6 +144,22 @@ int count(struct node *h){
 
 
 
+
+void displaylinkedlist(struct node *H){
+	
+	if (H==NULL)
+		{
+			printf("It is a empty list\n");
+		}
+	else 
+		{
+			while(H!=NULL)
+				{
+					printf("%c\n",H->data);
+					H=H->next;
+				}
+		}
+}
 
 
 
