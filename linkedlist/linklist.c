@@ -47,11 +47,14 @@ int main()
 	third = (struct node *) malloc(sizeof(struct node));
 	fourth = (struct node *) malloc(sizeof(struct node));
 	
-	head=first;
+	
 	first->data='A';
 	first->next=second;
 	second->data='B';
-	
+	second->next=third;
+	third->data='C';
+	third->next=NULL;
+	head=first;
 	
 	//displaylinkedlist(head);
 
@@ -108,12 +111,13 @@ int main()
 int count(struct node *h){
 	
 	int i=0;
-	if(h->next!=NULL)
+	
+	while(h->next!=NULL)
 		{
 			i++;
 			h=h->next;
 		}
-	return i;
+	return i+1;
 }
 
 
