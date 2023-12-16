@@ -1,8 +1,7 @@
 #include "header.h"
 #include <stdio.h>
 
-void wishes(void)
-{
+void wishes(void){
 	for (int i=0;i<4;i++)
 		{
 			printf("Hello Worlds\n");
