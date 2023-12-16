@@ -10,17 +10,16 @@ struct node{
 };
 
 typedef struct node Node;
-//Display Function
-struct node *insertatend(Node* head, char c);
 
 struct node *mloc(Node *t) {
     t = (struct node *)malloc(sizeof(struct node));
     return t;
 }
-
+void displaylinkedlist(struct node *H);
 int count(struct node *head);
 struct node * insertatbeg(Node *head,char c);
-void displaylinkedlist(struct node *H);
+struct node *insertatend(Node* head, char c);
+
 
 
 
@@ -68,8 +67,7 @@ int main()
 
 
 
-struct node *insertatend(Node* head, char c) 
-{
+struct node *insertatend(Node* head, char c) {
 	Node* tail=NULL;
 	tail=mloc(tail);	
 
