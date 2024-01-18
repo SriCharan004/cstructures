@@ -1,1 +1,68 @@
+struct Node {
+    char data;
+    struct Node* next;
+};
+struct Node* merge(struct Node* h1, struct Node* h2) {
+    struct Node* result = NULL;
 
+    if (h1 == NULL)
+        return h2;
+    if (h2 == NULL)
+        return h1;
+
+    if (h1->data < h2->data) {
+        result = h1;
+        result->next = merge(h1->next, h2);
+    } else if (h1->data > h2->data) {
+        result = h2;
+        result->next = merge(h1, h2->next);
+    } else {
+        // If the elements are equal, only add one of them to avoid duplicates
+        result = h1;
+        result->next = merge(h1->next, h2->next);
+    }
+
+    return result;
+}
+
+
+
+struct Node* mloc() {
+    return (struct Node*)malloc(sizeof(struct Node));
+}
+
+struct Node* createlt(struct Node* H) {
+    int num, i = 0;
+    char c;
+    printf("Enter the number: ");
+    scanf("%d", &num);
+    struct Node* t;
+    H = mloc();
+    t=H;
+    while (i < num) {
+        printf("Enter the data: ");
+        scanf(" %c", &c);  // Notice the space before %c to consume any newline characters
+        H->data = c;
+        H->next = mloc();
+        H = H->next;
+        i++;
+    }
+
+    H = NULL;  // Set the last node's next to NULL
+    return t;
+}
+void displaylinkedlist(struct Node *H){
+	
+	if (H==NULL)
+		{
+			printf("It is a empty list\n");
+		}
+	else 
+		{
+			while(H->next!=NULL)
+				{
+					printf("%c\n",H->data);
+					H=H->next;
+				}
+		}
+}
