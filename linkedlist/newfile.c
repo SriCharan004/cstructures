@@ -30,22 +30,20 @@ void printList(struct Node* head) {
 }
 
 // Function to swap the next two elements in the linked list
-void swapNextTwo(struct Node* head) {
+void swapAdjacentNodes(struct Node* head) {
     struct Node* current = head;
 
-    // Traverse the list
+    // Traverse the list and swap adjacent nodes
     while (current != NULL && current->next != NULL) {
-        // Swap the next two elements
-        struct Node* temp = current->next;
-        current->next = temp->next;
-        temp->next = current->next->next;
-        current->next->next = temp;
+        // Swap data of adjacent nodes
+        char temp = current->data;
+        current->data = current->next->data;
+        current->next->data = temp;
 
         // Move to the next pair
         current = current->next->next;
     }
 }
-
 // Function to free the memory occupied by the linked list
 void freeList(struct Node* head) {
     struct Node* current = head;
