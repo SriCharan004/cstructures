@@ -19,8 +19,7 @@ void deleteRecord(FILE *fp, int RegdNo);
 
 // studentrecord.c
 
-#include <stdio.h>
-#include "studentRecord.h"
+
 
 void insertRecord(FILE *fp) {
     struct StudentRecord record;
@@ -94,10 +93,6 @@ void deleteRecord(FILE *fp, int RegdNo) {
     printf("Record with registration number %d deleted successfully.\n", RegdNo);
 }
 
-// main.c
-
-#include <stdio.h>
-#include "studentRecord.h"
 
 int main() {
     FILE *fp;

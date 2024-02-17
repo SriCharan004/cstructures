@@ -2,7 +2,7 @@ hello
 i am
 sri 
 charan
-id  a
+id
 am writing 
 a new 
 kine
