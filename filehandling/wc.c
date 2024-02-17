@@ -13,23 +13,18 @@ int main(){
     char c;
     while((c=fgetc(f1))!=EOF){
         countchar++;
+        if (c == '\t'){
+            counttab++;
+        }
+        else if (c=='\n'){
+            countnewline++;
+        }
     }
     
     printf("Total Characters are %d \n",countchar);
-    fclose(f1);
-
-    f1=fopen("input.txt","r");
-    if(f1==NULL){
-            return 0;
-    }
-
-
-    while((c=fgetc(f1))!=EOF){
-        if(c == '\t'){
-            counttab++;
-        }
-    }
     printf("Total tabs are %d \n",counttab);
+    printf("Total newlines are %d \n",countnewline);
 
+   fclose(f1);
 
 }
