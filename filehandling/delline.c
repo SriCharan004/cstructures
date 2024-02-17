@@ -28,7 +28,7 @@ int main() {
     // Read each line from input file and copy to temporary file,
     // except the line to be deleted
     temp_line = 1;
-    while ((ch = fgetc(fp)) != EOF) {
+    while ((ch = fgetc(fp)) != EOF) { // till the last character
         if (ch == '\n')
             temp_line++;
         // If current line is not the one to delete, write to temporary file
