@@ -4,11 +4,13 @@
 
 #define MAX_LINE_LENGTH 256
 
+
 int main(int argc, char *argv[]) {
     FILE *file1, *file2;
     char line1[MAX_LINE_LENGTH], line2[MAX_LINE_LENGTH];
     int lineNum = 1;
 
+    
     // Check if correct number of arguments are provided
     if (argc != 3) {
         printf("Usage: FileCompare File1 File2\n");
